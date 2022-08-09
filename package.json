@@ -1,30 +1,34 @@
 {
     "name": "snowflake-action",
     "description": "Simple Action to obtain the Project Version from the File 'package.json'",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "homepage": "https://github.com/ShaidK/Snowflake",
     "author": "ShaidK",
     "license": "MIT",
     "repository": {
-      "url": "https://github.com/ShaidK/Snowflake",
-      "type": "git"
+        "url": "https://github.com/ShaidK/Snowflake",
+        "type": "git"
     },
     "bugs": {
         "url": "https://github.com/ShaidK/Snowflake/issues"
     },
     "keywords": [
         "Extension",
-        "Snowflake", 
+        "Snowflake",
         "Workflows",
         "Action"
     ],
-    "scripts": {       
+    "scripts": {
         "postinstall": "npm ls --depth 1 --dev",
+
         "lint:yaml": "eslint . --ext .yml,.yaml",
-        "build": "npm run lint:yaml"
+        "lint:md":   "eslint . --ext .md",
+        
+        "build": "npm run lint:md"
     },
     "devDependencies": {
         "eslint": "^8.11.0",
+        "eslint-plugin-markdownlint": "^0.4.0",
         "eslint-plugin-yaml": "^0.5.0"
     }
 }
