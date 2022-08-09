@@ -1,7 +1,7 @@
 {
     "name": "snowflake-action",
     "description": "Simple Action to obtain the Project Version from the File 'package.json'",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "homepage": "https://github.com/ShaidK/Snowflake",
     "author": "ShaidK",
     "license": "MIT",
@@ -20,6 +20,11 @@
     ],
     "scripts": {       
         "postinstall": "npm ls --depth 1 --dev",
-        "build": ""
+        "lint:yaml": "eslint . --ext .yml,.yaml",
+        "build": "npm run lint:yaml"
+    },
+    "devDependencies": {
+        "eslint": "^8.11.0",
+        "eslint-plugin-yaml": "^0.5.0"
     }
 }
