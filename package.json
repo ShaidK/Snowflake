@@ -1,7 +1,7 @@
 {
     "name": "snowflake-action",
     "description": "Simple Action to obtain the Project Version from the File 'package.json'",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "homepage": "https://github.com/ShaidK/Snowflake",
     "author": "ShaidK",
     "license": "MIT",
@@ -17,5 +17,9 @@
         "Snowflake", 
         "Workflows",
         "Action"
-    ]
+    ],
+    "scripts": {       
+        "postinstall": "npm ls --depth 1 --dev",
+        "build": ""
+    }
 }
