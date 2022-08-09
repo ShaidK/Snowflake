@@ -33,5 +33,20 @@
     ],
     "extends": [
         "plugin:yaml/recommended"
+    ],
+    "overrides": [
+        {
+            "parser": "eslint-plugin-markdownlint/parser",
+            "extends": [
+                "plugin:markdownlint/recommended"
+            ],
+            "files": [
+                "*.md"
+            ],
+            "rules": {
+                "markdownlint/md036": "off",
+                "markdownlint/md041": "off"
+            }
+        }
     ]
 }
