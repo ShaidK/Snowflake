@@ -1,5 +1,5 @@
 /*
- * File: launch.json | Note: Integrated to build & launch the Extension Host
+ * File: tasks.json | Note: Integrated Tasks to build & execute npm scripts 
  */
 
 /*
@@ -27,19 +27,18 @@
  */
 
  {
-    "version": "0.2.0",
-    "configurations": 
+    "version": "2.0.0",
+    "tasks": 
     [
         {
-            "name": "Snowflake - Extension Host",
-            "preLaunchTask": "Build Project",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceFolder}\\index.js",
-            "console": "integratedTerminal",
-            "skipFiles": [
-                "<node_internals>/**"
-            ]          
+            "label": "Build Project",
+            "detail": "Execute 'npm' Scripts to build the Project",
+            "script": "build",
+            "group":  "build",
+            "type": "npm",
+            "presentation": {
+                "showReuseMessage": false, "clear": true
+            }
         }
     ]
 }
