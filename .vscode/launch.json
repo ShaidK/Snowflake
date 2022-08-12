@@ -26,9 +26,9 @@
  * SOFTWARE.
  */
 
- {
+{
     "version": "0.2.0",
-    "configurations": 
+    "configurations":
     [
         {
             "name": "Snowflake - Extension Host",
@@ -39,7 +39,7 @@
             "console": "integratedTerminal",
             "skipFiles": [
                 "<node_internals>/**"
-            ]          
+            ]
         }
     ]
 }

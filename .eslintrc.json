@@ -26,14 +26,42 @@
  * SOFTWARE.
  */
 
- {
+{
     "root": true,
     "plugins": [
         "yaml"
     ],
     "extends": [
-        "plugin:yaml/recommended"
+        "plugin:jsonc/recommended-with-json",
+        "plugin:yaml/recommended",
+        "eslint:recommended"
     ],
+    "rules": {
+        "jsonc/key-spacing": [
+            "error", { "beforeColon": false, "afterColon": true, "mode": "minimum" }
+        ],
+        "jsonc/array-bracket-spacing": [
+            "error", "always"
+        ],
+        "jsonc/no-comments": [
+            "off"
+        ],
+        "jsonc/comma-style": [
+            "error", "last"
+        ],
+        "jsonc/indent": [
+            "warn", 4
+        ],
+        "jsonc/object-curly-newline": [
+            "error", { "consistent": true }
+        ],
+        "jsonc/quote-props": [
+            "error", "always"
+        ],
+        "jsonc/quotes": [
+            "error", "double"
+        ]
+    },
     "overrides": [
         {
             "parser": "eslint-plugin-markdownlint/parser",
