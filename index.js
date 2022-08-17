@@ -26,8 +26,16 @@
  * SOFTWARE.
  */
 
-function getPackageProperty(property) {
-    return property;
+const package_json = require('./package.json')
+
+function getPackageProperty(arg) {
+    if (typeof arg !== 'string')
+        throw new TypeError(`Parameter ${arg} must be a property type of string`);
+
+    if (package_json[arg] === undefined)
+        throw new TypeError(`Property ${arg} is not within File: 'package.json'`);
+
+    return package_json[arg];
 }
 
 module.exports = {
