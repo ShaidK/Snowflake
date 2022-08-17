@@ -28,6 +28,18 @@
 
 var function_obj = require('./index.js')
 
-test('Note: Maintain testing to successfully obtain the Property "version" within the Extension Manifest', () => {
+test('Note: testing to successfully obtain the Property "version" within the Extension Manifest', () => {
     expect(function_obj.getPackageProperty('version')).toMatch(/^(\d+).(\d+).(\d+)$/)
+});
+
+test('Note: testing functionality of incorrect type of Input Paramater has been provided', () => {
+    expect(() => function_obj.getPackageProperty(1)).toThrow(TypeError)
+});
+
+test('Note: testing functionality of missing Property within the File "package.json"', () => {
+    expect(() => function_obj.getPackageProperty("missing_arg")).toThrow(TypeError)
+});
+
+test('Note: testing functionality of empty string of Input Parameter has been provided', () => {
+    expect(() => function_obj.getPackageProperty("")).toThrow(TypeError)
 });

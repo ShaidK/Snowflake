@@ -1,7 +1,7 @@
 {
     "name": "snowflake-action",
     "description": "Simple Action to obtain the Project Version from the File 'package.json'",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "homepage": "https://github.com/ShaidK/Snowflake",
     "author": "ShaidK",
     "license": "MIT",
