@@ -27,8 +27,10 @@
  */
 
 const package_json = require('./package.json')
+const core = require('@actions/core')
 
 function getPackageProperty(arg) {
+    console.log(`Snowflake Action - Obtaining the following Property: ${arg}`);
     if (typeof arg !== 'string')
         throw new TypeError(`Parameter ${arg} must be a property type of string`);
 
@@ -38,6 +40,18 @@ function getPackageProperty(arg) {
     return package_json[arg];
 }
 
+async function run() {
+    try {
+        const package_json_property = core.getInput('required_property');
+        core.setOutput(`property_${package_json_property}`, getPackageProperty(package_json_property));
+    }
+    catch (err) {
+        core.setFailed(err.message);
+    }
+}
+
 module.exports = {
     getPackageProperty: getPackageProperty
 };
+
+run()
