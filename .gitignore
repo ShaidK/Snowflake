@@ -26,4 +26,6 @@
 # SOFTWARE.
 #
 
-**/node_modules/
+# NOTE: The node_modules Folder must be checked into the repository as stated within the 
+#       documentations 
+# **/node_modules/
