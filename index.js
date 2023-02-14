@@ -26,13 +26,18 @@
  * SOFTWARE.
  */
 
-const package_json = require('./package.json')
 const core = require('@actions/core')
+const path = require('path')
 
-function getPackageProperty(arg) {
+const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE;
+
+function getPackageProperty(arg, workspace_path) {
     console.log(`Snowflake Action - Obtaining the following Property: ${arg}`);
     if (typeof arg !== 'string')
         throw new TypeError(`Parameter ${arg} must be a property type of string`);
+
+    const package_json_path = path.resolve(workspace_path, 'package.json');
+    const package_json = require(package_json_path);
 
     if (package_json[arg] === undefined)
         throw new TypeError(`Property ${arg} is not within File: 'package.json'`);
@@ -43,7 +48,7 @@ function getPackageProperty(arg) {
 async function run() {
     try {
         const package_json_property = core.getInput('required_property');
-        core.setOutput(`property_${package_json_property}`, getPackageProperty(package_json_property));
+        core.setOutput(`property_${package_json_property}`, getPackageProperty(package_json_property, GITHUB_WORKSPACE));
     }
     catch (err) {
         core.setFailed(err.message);
